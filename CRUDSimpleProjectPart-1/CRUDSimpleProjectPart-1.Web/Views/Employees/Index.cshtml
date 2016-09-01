@@ -1,0 +1,92 @@
+﻿@model CRUDSimpleProjectPart_1.Web.Models.ViewModel.EmployeeViewModel
+@{
+    ViewBag.Title = "Employee Information";
+}
+
+<h3 style="color:chocolate; margin-left: 350px;"><b>Employee Information</b></h3>
+
+<hr/>
+
+<h3>Create New Employee</h3>
+<hr />
+<section class="section" style="margin-left: 300px;">
+    @using (Html.BeginForm("Save", "Employees", FormMethod.Post, new { @class = "OrderForm" }))
+{
+        @Html.HiddenFor(x=>x.Employee.EmployeeID)
+    <div>
+        @Html.LabelFor(x => x.Employee.Name, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(x => x.Employee.Name, new { @class = "form-control" })
+        <br />
+        <br />
+        @Html.LabelFor(x => x.Employee.City, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(x => x.Employee.City, new { @class = "form-control" })
+        <br />
+        <br />
+        @Html.LabelFor(x => x.Employee.Address, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(x => x.Employee.Address, new { @class = "form-control" })
+
+
+        <br />
+        <div>
+            <input type="button" value="Save" class="btn btn-info" onclick=""/>
+        </div>
+       
+    </div>
+
+
+
+
+}
+</section>
+
+<hr/>
+
+<div id="EmployeeList">
+    
+</div>
+
+
+
+<style>
+    html, body,footer, #body {
+        background-color:#fff;
+    }
+    .ui-widget-header {
+        border: none !important;
+        background: none !important;
+        color: #222222;
+        font-weight: bold;
+    }
+    .ui-state-default, .ui-state-hover {
+        border: none !important;
+        background: none !important;
+    }
+    .ui-dialog{
+        webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    }
+    h2 {
+        margin-top:0px;
+        font-size:30px;
+    }
+
+    .success {
+        color:green;
+    }
+    .failed {
+        color:red;
+    }
+
+</style>
+
+
+@section scripts
+{
+    
+<script src="~/Scripts/EmployeeInformation.js"></script>
+
+    
+
+}
+
+
